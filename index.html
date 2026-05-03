@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMVIDEO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+        }
+
+        /* 导航动效 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(15px);
+            z-index: 999;
+            padding: 18px 0;
+            transition: 0.4s ease;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            margin-left: 24px;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* 背景视频区域 */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1.2s ease 0.2s forwards;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        /* 动画 */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 公司介绍 纯白 + 动效 */
+        .about {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 0 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.9s ease;
+        }
+
+        .about.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+
+        .about p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* 作品展示 纯白 + 动效 */
+        .works {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.9s ease;
+        }
+
+        .works.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .works h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .work-item {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: 0.4s ease;
+        }
+
+        .work-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .work-item video,
+        .work-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .work-item h4 {
+            padding: 16px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        footer {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">LUMVIDEO</a>
+        <div class="nav-links">
+            <a href="#about">公司介绍</a>
+            <a href="#works">作品展示</a>
+            <a href="shop.html">商品服务</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 顶部背景视频 -->
+<section class="hero">
+    <div class="overlay"></div>
+    <video muted loop playsinline>
+        <source src="bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+        <h1>光影艺术 · 匠心定制</h1>
+        <p>专注高端影视拍摄、传媒宣发与明星专属手工物料定制</p>
+    </div>
+</section>
+
+<!-- 公司介绍 -->
+<section id="about" class="about">
+    <h2>关于我们</h2>
+    <p>LUMVIDEO 是一家专注于高端影视创作、传媒宣发与明星手工物料定制的专业品牌。我们以极致美学、匠心工艺为核心，致力于为客户提供视觉与质感兼具的顶级作品，从影视拍摄到专属定制，每一处细节都追求完美。</p>
+</section>
+
+<!-- 作品展示 → 鼠标悬浮自动播放！-->
+<section id="works" class="works">
+    <h2>作品展示</h2>
+    <div class="work-grid">
+
+        <div class="work-item">
+            <video 
+                class="preview-video"
+                muted
+                playsinline
+                onmouseenter="this.play()"
+                onmouseleave="this.pause(); this.currentTime=0;">
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+            <h4>宣传片作品</h4>
+        </div>
+
+        <div class="work-item">
+            <img src="img/work2.jpg">
+            <h4>影视拍摄作品</h4>
+        </div>
+
+        <div class="work-item">
+            <img src="img/work3.jpg">
+            <h4>高端礼盒成品</h4>
+        </div>
+
+        <div class="work-item">
+            <img src="img/work4.jpg">
+            <h4>明星定制物料</h4>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 LUMVIDEO</p>
+</footer>
+
+<script>
+    // 滚动动画
+    const sections = document.querySelectorAll('.about, .works');
+    window.addEventListener('scroll', () => {
+        sections.forEach(s => {
+            if (s.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                s.classList.add('show');
+            }
+        });
+    });
+    window.dispatchEvent(new Event('scroll'));
+</script>
+
+</body>
+</html>
